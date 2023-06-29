@@ -98,3 +98,7 @@ cy.get('body').should('contain.text','Error')
 or
 cy.get('body').contains('ErrorError: all fields are required')
 ```
+
+## Cucumber Expressions
+
+Regular expressions : <https://github.com/cucumber/cucumber-expressions#readme>

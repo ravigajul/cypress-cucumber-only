@@ -6,7 +6,7 @@ When('I type a first name',()=>{
 })
 
 When('I type a last name',()=>{
-    cy.get('input[name="last_name"]').type('Ravi')
+    cy.get('input[name="last_name"]').type('Gajul')
 })
 
 When('I type an email address',()=>{
@@ -22,4 +22,16 @@ When('I click on submit button',()=>{
 
 Then('I should see the error message',()=>{
     cy.get('body').contains('Error: all fields are required')
+})
+
+When('I type a specific first name {string}',(first_name)=>{
+    cy.get('input[name="first_name"]').type(first_name)
+})
+
+When('I type a specific last name {string}',(last_name)=>{
+    cy.get('input[name="last_name"]').type(last_name)
+})
+
+When('I type a specific email address {string}',(email)=>{
+    cy.get('input[placeholder="Email Address"]').type(email)
 })
