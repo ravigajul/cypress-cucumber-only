@@ -36,3 +36,51 @@ Add the below object in tsconfig.json under compiler option
 ```javascript
 npm install ts-loader --save-dev
 ```
+
+## Setup Cucumber on VSCode
+
+file->settings->cucumberautocomplete:Custom Parameters->EditinSettings.json
+
+```json
+Settings.json
+{
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "redhat.telemetry.enabled": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "files.autoSave": "afterDelay",
+    "cucumberautocomplete.customParameters": [
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "cucumberautocomplete.steps": ["cypress/support/step_definitions/*.js"],
+     "workbench.iconTheme": "material-icon-theme"
+}
+```
+
+Update package.json
+
+```json
+ "cypress-cucumber-preprocessor":{
+    "stepDefinitions":"cypress/support/step_definitions/**/*.js"
+  } 
+```
+
+## If cypress commands intellisense doesn't work
+
+add below as the first line in .js file to see the cypress commands intellisense
+
+```javascript
+///<reference types="cypress"/>
+```
+
+## Open the page in same window instead of new window on clicking a link
+
+```javascript
+cy.get('a#contact-us').invoke('removeAttr','target').click()
+```

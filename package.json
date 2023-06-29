@@ -14,8 +14,9 @@
     "cypress": "^12.14.0",
     "ts-loader": "^9.4.4",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0"
-  },
-  "dependencies": {
-    
-  }
+  }, 
+  "cypress-cucumber-preprocessor":{
+    "stepDefinitions":"cypress/support/step_definitions/**/*.js"
+  } 
+  
 }
