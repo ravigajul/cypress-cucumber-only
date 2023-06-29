@@ -1,5 +1,5 @@
 ///<reference types="cypress"/>
-import { Given, When} from "@badeball/cypress-cucumber-preprocessor"
+import { Given, When,Then} from "@badeball/cypress-cucumber-preprocessor"
 
 When('I type a first name',()=>{
     cy.get('input[name="first_name"]').type('Ravi')
@@ -20,4 +20,6 @@ When('I click on submit button',()=>{
     cy.get('input[type="submit"]').click()
 })
 
-//div#contact_reply
+Then('I should see the error message',()=>{
+    cy.get('body').contains('Error: all fields are required')
+})

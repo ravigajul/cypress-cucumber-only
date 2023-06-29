@@ -84,3 +84,17 @@ add below as the first line in .js file to see the cypress commands intellisense
 ```javascript
 cy.get('a#contact-us').invoke('removeAttr','target').click()
 ```
+
+## Assertion for availability of a text
+
+```javascript
+cy.get('div#contact_reply h1').should('have.text','Thank You for your Message!')
+```
+
+## Assertion for contains text
+
+```javascript
+cy.get('body').should('contain.text','Error')
+or
+cy.get('body').contains('ErrorError: all fields are required')
+```
