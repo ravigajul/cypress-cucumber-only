@@ -25,7 +25,7 @@ Feature: Webdriver universtiy - contact us page
         And I type a specific word "Hey There" and a number 2222 within comments field
         And I click on submit button
         Then I should see the thank you message
-
+    @datadriven
     Scenario Outline: Validate both valid and invalid credentials in one scenario using scenario outline
         And I type a specific first name <First_Name>
         And I type a specific last name <Last_Name>
@@ -37,3 +37,4 @@ Feature: Webdriver universtiy - contact us page
             | First_Name | Last_Name | Email                 | Comment    | Num  | Message                        |
             | "Ravi"     | "Gajul"   | "Ravi.Gajul@Test.com" | "Comment1" | 2222 | "Thank You for your Message!"  |
             | "Nick"     | "Jonas"   | "something"           | "Comment2" | 2223 | "Error: Invalid email address" |
+            | "Nick"     | "Jonas"   | "something"           | "Comment2" | 2223 | "Fail: Invalid email address"  |

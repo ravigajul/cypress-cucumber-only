@@ -163,11 +163,12 @@ In order to have this generated in a custom location make the below changes to p
 
 ## Cucumber JSON reports
 
-1. Install the cucumber json formatter from the below <https://github.com/cucumber/json-formatter/releases/tag/v19.0.0>
-2. Change the file name to cucumber-json-formatter.exe
-3. Set the path to downloaded file location
-4. Set PATH : C:\Users\ravi\Downloads\cypress-cucumber-only\
-5. Make the below changes to package.json
+1. This is the file that CI sytems like jenkins uses to generate the reports.
+2. Install the cucumber json formatter from the below <https://github.com/cucumber/json-formatter/releases/tag/v19.0.0>
+3. Change the file name to cucumber-json-formatter.exe
+4. Set the path to downloaded file location
+5. Set PATH : C:\Users\ravi\Downloads\cypress-cucumber-only\
+6. Make the below changes to package.json
 
 ```json
  "json": {
@@ -176,3 +177,33 @@ In order to have this generated in a custom location make the below changes to p
       "output": "cypress/reports/cucumber-json/cucumber-report.json"
     }
 ```
+
+## Multiple Cucumber Html reports
+
+<https://www.npmjs.com/package/multiple-cucumber-html-reporter>
+
+```javascript
+npm install multiple-cucumber-html-reporter --save-dev
+```
+
+1. Create cucumber-html-report.js at root location
+
+```javascript
+const report = require("multiple-cucumber-html-reporter");
+
+report.generate({
+  jsonDir: "cypress/reports/cucumber-json/",
+  reportPath: "cypress/reports/html-multi-report/",
+  ignoreBadJsonFile: true,
+  displayReportTime: true,
+  displayDuration: true,
+  metadata: {
+    device: "Local test machine.",
+    platform: { name: "Windows", version: "11" },
+  },
+});
+```
+
+2. Run the npm script for executing the test
+3. Run the .js file created above using node <test.js>
+   $. The report should be generated.
