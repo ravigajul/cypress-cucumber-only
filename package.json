@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:smoke": "cypress  run -e TAGS=\"@smoke\" --headed && node .\\cucumber-html-report.js",
-    "cy:datadriven": "cypress  run -e TAGS=\"@datadriven\" --headed && node cucumber-html-report.js",
-    "cy:smokesanity": "cypress run -e TAGS=\"@smoke or @sanity\" --headed && node cucumber-html-report.js",
+    "cy:datadriven": "cypress  run -e TAGS=\"@datadriven\" --headed && node .\\cucumber-html-report.js",
+    "cy:smokesanity": "cypress run -e TAGS=\"@smoke or @sanity\" --headed && node .\\cucumber-html-report.js",
     "regression-headed-chrome": "cypress run --headed --browser chrome --spec 'cypress/e2e/*.feature' && node cucumber-html-report.js",
     "regression-headless-chrome": "cypress run  --browser chrome --spec 'cypress/e2e/*.feature' && node cucumber-html-report.js",
     "regression-headed-chrome-contactus": "cypress run  --headed --browser chrome --spec 'cypress/e2e/ContactUS.feature' && node cucumber-html-report.js"
