@@ -187,6 +187,9 @@ npm install multiple-cucumber-html-reporter --save-dev
 ```
 
 1. Create cucumber-html-report.js at root location
+2. Run the npm script for executing the test
+3. Run the .js file created above using node <test.js>
+4. The report should be generated.
 
 ```javascript
 const report = require("multiple-cucumber-html-reporter");
@@ -203,7 +206,3 @@ report.generate({
   },
 });
 ```
-
-2. Run the npm script for executing the test
-3. Run the .js file created above using node <test.js>
-   $. The report should be generated.
