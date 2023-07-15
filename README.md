@@ -209,11 +209,19 @@ report.generate({
 
 ## Command Chaining
 
-In the below script, command1 will be executed first. If it fails (returns a non-zero exit code), command2 will be executed instead. This ensures that the second command runs even if the previous command fails.
+In the below script, command1 will be executed first. If it fails (returns a non-zero exit code), command2 will be executed instead. This ensures that the second command runs even only the previous command fails.
 
 ```javascript
 "scripts": {
   "build": "command1 || command2"
+}
+```
+
+In the example below, echo. is used to output a blank line, effectively doing nothing. This command will succeed and return a successful exit code. Thus ensuring the second command is always executed irrespective of the outcome of first command
+
+```javascript
+"scripts": {
+  "build": "(command1 || echo .) && command2"
 }
 ```
 
