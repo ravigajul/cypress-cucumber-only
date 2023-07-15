@@ -206,3 +206,21 @@ report.generate({
   },
 });
 ```
+
+## Command Chaining
+
+In the below script, command1 will be executed first. If it fails (returns a non-zero exit code), command2 will be executed instead. This ensures that the second command runs even if the previous command fails.
+
+```javascript
+"scripts": {
+  "build": "command1 || command2"
+}
+```
+
+In the below script, The && symbol is a conditional command separator that allows you to chain multiple commands together. It ensures that the subsequent command is executed only if the previous one succeeds (returns a zero exit code). If the previous command fails (returns a non-zero exit code), the subsequent command is not executed
+
+```javascript
+"scripts": {
+  "build": "command1 && command2"
+}
+```
